@@ -1,6 +1,6 @@
 {
   "name": "securesign.js",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "SecureSign.js is a library developed to use Library of Code's API!",
   "main": "./src/index.js",
   "scripts": {

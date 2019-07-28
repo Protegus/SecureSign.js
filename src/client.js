@@ -63,14 +63,14 @@ class Client extends EventEmitter {
         if(!info) throw new Error('Must provide either a curve for an ECC key, or a modulus number for an RSA key.');
         if(type !== 'ECC' || 'RSA') throw new Error('Type of key must either be ECC or RSA.');
         if(type === 'ECC') {
-            axios({
+            await axios({
                 method: 'post',
                 url: 'https://api.securesign.org/keys/ecc',
                 headers: {'authorization': this._hash, 'Content-Type': 'application/json'},
                 data: JSON.stringify({curve: curve})
             }).then(r => r.data);
         } else if (type === 'RSA') {
-            axios({
+            await axios({
                 method: 'post',
                 url: 'https://api.securesign.org/keys/rsa',
                 headers: {'authorization': this._hash, 'Content-type': 'application/json'},
@@ -80,7 +80,7 @@ class Client extends EventEmitter {
     }
 
     async listCurves() {
-        axios({
+        await axios({
             method: 'get',
             url: 'https://api.securesign.org/keys/ecc',
             headers: {'authorization': this._hash}
@@ -88,7 +88,7 @@ class Client extends EventEmitter {
     }
 
     async listCerts() {
-        axios({
+        await axios({
             method: 'get',
             url: 'https://api.securesign.org/certificates',
             headers: {'authorization': this._hash}
