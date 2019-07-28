@@ -3,7 +3,7 @@ const { EventEmitter } = require('events');
 
 class Client extends EventEmitter {
     constructor(hash) {
-        power();
+        super();
         this._hash = hash;
         this._username = this.getInfo('username');
         this._id = this.getInfo('id');
