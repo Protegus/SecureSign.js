@@ -61,38 +61,49 @@ class Client extends EventEmitter {
     async generateKey(type, info) {
         if(!type) throw new Error('Must specify whether creating an ECC or RSA key.');
         if(!info) throw new Error('Must provide either a curve for an ECC key, or a modulus number for an RSA key.');
-        if(type !== 'ECC' || 'RSA') throw new Error('Type of key must either be ECC or RSA.');
+        if(type !== 'ECC' && type !== 'RSA') throw new Error('Type must be either ECC or RSA.');
         if(type === 'ECC') {
-            await axios({
+            const method = await axios({
                 method: 'post',
                 url: 'https://api.securesign.org/keys/ecc',
                 headers: {'authorization': this._hash, 'Content-Type': 'application/json'},
-                data: JSON.stringify({curve: curve})
-            }).then(r => r.data);
+                data: JSON.stringify({curve: info})
+            });
+
+            return method.data.message;
         } else if (type === 'RSA') {
-            await axios({
+            const method = await axios({
                 method: 'post',
                 url: 'https://api.securesign.org/keys/rsa',
                 headers: {'authorization': this._hash, 'Content-type': 'application/json'},
-                data: JSON.stringify({modulus: type})
-            }).then(r => r.data);
+                data: JSON.stringify({modulus: info})
+            });
+
+            return method.data.message;
+        } else {
+            throw new Error("Something went wrong.");
         }
+
     }
 
     async listCurves() {
-        await axios({
+        const method = await axios({
             method: 'get',
             url: 'https://api.securesign.org/keys/ecc',
             headers: {'authorization': this._hash}
-        }).then(r => r.data);
+        });
+
+        return method.data.message;
     }
 
     async listCerts() {
-        await axios({
+        const method = await axios({
             method: 'get',
             url: 'https://api.securesign.org/certificates',
             headers: {'authorization': this._hash}
-        }).then(r => r.data);
+        });
+
+        return method.data.message;
     }
 
 
