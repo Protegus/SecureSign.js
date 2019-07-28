@@ -155,6 +155,8 @@ class Client extends EventEmitter {
             });
 
             return method.data.message;
+        } else {
+            throw new Error("Something went wrong!");        
         }
     }
 
