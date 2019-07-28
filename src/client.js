@@ -5,16 +5,20 @@ class Client extends EventEmitter {
     constructor(hash) {
         super();
         this._hash = hash;
-        this._username = this.getInfo('username');
-        this._id = this.getInfo('id');
-        this._email = this.getInfo('email');
-        this._class = this.getInfo('class');
-        this._total = this.getInfo('total');
-        this._allowed = this.getInfo('allowed');
-        this._promo = this.getInfo('promo');
-        this._usedPromoKeys = this.getInfo('usedPromoKeys');
+        this._init();
+   }
+
+   async _init() {
+     this._username = this.getInfo('username');
+        this._id = await this.getInfo('id');
+        this._email = await this.getInfo('email');
+        this._class = await this.getInfo('class');
+        this._total = await this.getInfo('total');
+        this._allowed = await this.getInfo('allowed');
+        this._promo = await this.getInfo('promo');
+        this._usedPromoKeys = await this.getInfo('usedPromoKeys');
         this.emit('ready', this);
-    }
+     }
 
     get hash() {
         return this._hash;
@@ -44,12 +48,14 @@ class Client extends EventEmitter {
         return this._usedPromoKeys;
     }
 
-    getInfo(request) {
-        axios({
+   async getInfo(request) {
+      const method = await axios({
             method: 'get',
             url: 'https://api.securesign.org/account/details',
             headers: {'Authorization': this._hash}
-        }).then(r => r.data.message[request]);
+        });
+
+       return method.data.message[request];
     }
 }
 
