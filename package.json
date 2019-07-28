@@ -1,0 +1,22 @@
+{
+  "name": "securesign.js",
+  "version": "0.0.1",
+  "description": "SecureSign.js is a library developed to use Library of Code's API!",
+  "main": "/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Protegus/SecureSign.js.git"
+  },
+  "author": "Knight",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Protegus/SecureSign.js/issues"
+  },
+  "homepage": "https://github.com/Protegus/SecureSign.js#readme",
+  "dependencies": {
+    "axios": "^0.19.0"
+  }
+}
