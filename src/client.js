@@ -106,6 +106,58 @@ class Client extends EventEmitter {
         return method.data.message;
     }
 
+    async createCert(classNum, cn, md, type, csr) {
+        if(!classNum) throw new Error("The cert's class must be specified.");
+        if(!cn) throw new Error("The cert's commonname must be specified.");
+        if(!md) throw new Error("The cert's Signature Hash Algorithm must be specified.");
+        if(!type) throw new Error("The cert's key type must be specified. Either ECC or RSA.");
+        if(type !== 'ECC' && type !== 'RSA') throw new Error("The key type must either be ECC or RSA.");
+        if(!csr) throw new Error("The cert's CSR must be specified.");
+        if(classNum !== 1 && classNum !== 2 && classNum !== 3) throw new Error("The certificate must have either class 1, 2, or 3.");
+        if(md !== 'SHA256' && md !== 'SHA384' && md !== 'SHA512') throw new Error("The certificate's signature hash algorithm must be either SHA256, SHA384, or SHA512");
+        if(classNum === 1) {
+            const method = axios({
+                method: 'post',
+                url: `https://api.securesign.org/certificates/${type}/client?class=1`,
+                headers: {'authorization': this._hash, 'Content-Type': 'application/json'},
+                data: JSON.stringify({
+                    commonname: cn,
+                    md: md,
+                    csr: csr
+                })
+            });
+
+            return method.data.message;
+        } else if (classNum === 2) {
+            const method = axios({
+                method: 'post',
+                url: `https://api.securesign.org/certificates/${type}/client?class=2`,
+                headers: {'authorization': this._hash, 'Content-Type': 'application/json'},
+                data: JSON.stringify({
+                    commonname: cn,
+                    md: md,
+                    csr: csr
+                })
+            });
+
+            return method.data.message;
+        } else if (classNum === 3) {
+            if(type !== 'RSA') throw new Error("Only RSA keys support class 3 certificates.");
+            const method = axios({
+                method: 'post',
+                url: 'https://api.securesign.org/certificates/rsa/client?class=3',
+                headers: {'authorization': this._hash, 'Content-Type': 'application/json'},
+                data: JSON.stringify({
+                    commonname: cn,
+                    md: md,
+                    csr: csr
+                })
+            });
+
+            return method.data.message;
+        }
+    }
+
 
 }
 
