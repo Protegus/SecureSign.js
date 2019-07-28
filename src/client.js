@@ -9,7 +9,7 @@ class Client extends EventEmitter {
    }
 
    async _init() {
-     this._username = this.getInfo('username');
+     this._username = await this.getInfo('username');
         this._id = await this.getInfo('id');
         this._email = await this.getInfo('email');
         this._class = await this.getInfo('class');
@@ -95,7 +95,7 @@ class Client extends EventEmitter {
         }).then(r => r.data);
     }
 
-    
+
 }
 
 module.exports = Client;
