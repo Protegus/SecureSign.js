@@ -36,4 +36,8 @@ email | Will return the email of your securesign account | `Client.email`
 class | Will return the class of your securesign account | `Client.class`
 total | Will return the total amount of certificates created under your account | `Client.total`
 allowed | Will return the total amount of certificates allowed to be issued under your account | `Client.allowed`
+promo | Will return a boolean whether or not you have promo's activated...(I think) | `Client.promo`
+usedPromoKeys | Will return an array of all the used promo keys under your account | `Client.usedPromoKeys`
 
+
+k testing
