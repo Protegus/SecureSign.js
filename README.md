@@ -4,3 +4,11 @@ SecureSign.js is a library developed by Knight for [Library of Code's](https://w
 ## Installation
 
 To install SecureSign.js, just run `npm i securesign.js` in your terminal.
+
+## Getting Started
+
+To get started with SecureSign.js, you need to initialize your client. Do this this, simply do:
+
+```javascript
+const secureSign = require('securesign.js');
+const Client = new secureSign.Client('yourHash');```
