@@ -29,5 +29,11 @@ Client.on('ready', (info) => {
 
 Name | Description | Example
 ---- | ----------- | -------
-username | Will show the username of your securesign account | `Client.username`
--------- | ------------------------------------------------- | -----------------
+hash | Will return the hash you used to initialize the client | `Client.hash`
+username | Will return the username of your securesign account | `Client.username`
+id | Will return the ID of your securesign account | `Client.id`
+email | Will return the email of your securesign account | `Client.email`
+class | Will return the class of your securesign account | `Client.class`
+total | Will return the total amount of certificates created under your account | `Client.total`
+allowed | Will return the total amount of certificates allowed to be issued under your account | `Client.allowed`
+
