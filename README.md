@@ -47,6 +47,8 @@ usedPromoKeys | Will return an array of all the used promo keys under your accou
 
 This function will generate a new ECC/RSA private key.
 
+> Returns unknown
+
 Parameters | Description | Type
 ---------- | ----------- | ----
 type | ECC or RSA | `String`
@@ -58,4 +60,17 @@ info | For a ECC key, specify the curve name. RSA specify the modulus. | `String
 Client.generateKey('ECC', 'prime256v1').then(r => console.log(r)).catch(e => console.error(e));
 ```
 
+### listCurves()
+
+This function provides a list of available ECC named curves.
+
+> Returns `text`
+
+> No parameters.
+
+#### Example
+
+```javascript
+Client.listCurves().then(r => console.log(r)).catch(e => console.error(e));
+```
 
