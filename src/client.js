@@ -138,7 +138,6 @@ class Client extends EventEmitter {
    * @example Client.createCert(2, 'matthew<at>cloud.libraryofcode.us', 'SHA512', 'ECC', fs.readFileSync('/path/to/my.csr')).then(r => console.log(r)).catch(e => console.error(e));
    */
   async createCert(classNum, cn, md, type, csr) {
-    try {
     if (!classNum) throw new Error('The cert\'s class must be specified.');
     if (!cn) throw new Error('The cert\'s commonname must be specified.');
     if (!md) throw new Error('The cert\'s Signature Hash Algorithm must be specified.');
@@ -190,9 +189,7 @@ class Client extends EventEmitter {
     } else {
       throw new Error('Something went wrong!');        
     } 
-  } catch(error) {
-    console.log(error.response);
-  }
+   
   }
 
 
