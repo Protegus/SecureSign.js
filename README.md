@@ -11,4 +11,6 @@ To get started with SecureSign.js, you need to initialize your client. Do this t
 
 ```javascript
 const secureSign = require('securesign.js');
-const Client = new secureSign.Client('yourHash');```
+const Client = new secureSign.Client('yourHash');
+```
+
