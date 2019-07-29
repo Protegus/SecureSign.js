@@ -47,7 +47,7 @@ usedPromoKeys | Will return an array of all the used promo keys under your accou
 
 This function will generate a new ECC/RSA private key.
 
-> Returns unknown
+> Returns `Still figuring out, most likely Number`
 
 Parameters | Description | Type
 ---------- | ----------- | ----
@@ -64,7 +64,7 @@ Client.generateKey('ECC', 'prime256v1').then(r => console.log(r)).catch(e => con
 
 This function provides a list of available ECC named curves.
 
-> Returns `text`
+> Returns `String`
 
 > No parameters.
 
@@ -74,3 +74,35 @@ This function provides a list of available ECC named curves.
 Client.listCurves().then(r => console.log(r)).catch(e => console.error(e));
 ```
 
+### listCerts()
+
+This function provides an array of objects, in each object is certificate information for each certificate you have created.
+
+> Returns `Array`
+
+> No parameters
+
+#### Example
+
+```javascript
+Client.listCerts().then(r => console.log(r)).catch(e => console.error(e));
+```
+
+### createCert()
+
+This is currently the most complex function. This function creates a new certificate.
+
+> Returns unknown
+
+Parameters | Description | Type
+---------- | ----------- | ----
+classNum | The class used to make the certificate. Class 1-2 are supported on ECC, all classes are supported with RSA. | `Number`
+cn | The Common Name of the certificate. | `String`
+md | The Hashing Algorithm to use for the certificate, can be SHA256, SHA384, or SHA512. | `String`
+type | The CA key type to use, can be ECC or RSA. | `String`
+csr | The PEM-encoded CSR. | `Path to CSR`
+
+#### Example 
+
+```javascript
+Client.createCert(2, 'matthew@cloud.libraryofcode.us', 'SHA512', 'ECC', fs.readFileSync('/path/to/my.csr')).then(r => console.log(r)).catch(e => console.error(e));
