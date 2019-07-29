@@ -22,3 +22,12 @@ Client.on('ready', (info) => {
   console.log(`${info.username} is ready!`);
 });
 ```
+
+# Documentation
+
+## Information attached to client
+
+Name | Description | Example
+---- | ----------- | -------
+username | Will show the username of your securesign account | `Client.username`
+-------- | ------------------------------------------------- | -----------------
