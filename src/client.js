@@ -189,7 +189,6 @@ class Client extends EventEmitter {
     } else {
       throw new Error('Something went wrong!');        
     } 
-   
   }
 
 

@@ -11,7 +11,7 @@
     "url": "git+https://github.com/Protegus/SecureSign.js.git"
   },
   "author": "Knight",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Protegus/SecureSign.js/issues"
   },
