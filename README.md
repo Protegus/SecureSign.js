@@ -23,6 +23,8 @@ Client.on('ready', (info) => {
 });
 ```
 
+>The parameter for the callback, info, is literally the exact same thing as Client... It's your choice whether to use it or not.
+
 # Documentation
 
 ## Information attached to client
@@ -39,5 +41,6 @@ allowed | Will return the total amount of certificates allowed to be issued unde
 promo | Will return a boolean whether or not you have promo's activated...(I think) | `Client.promo`
 usedPromoKeys | Will return an array of all the used promo keys under your account | `Client.usedPromoKeys`
 
+## Functions attached to client
 
-k testing
+>Just a small note, all of these functions are asynchronous
