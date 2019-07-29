@@ -1,1 +1,1 @@
-module.exports = { Client : require('./client.js')};
+module.exports = { Client: require('./client.js')};
