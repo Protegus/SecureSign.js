@@ -49,7 +49,7 @@ usedPromoKeys | Will return an array of all the used promo keys under your accou
 
 This function will generate a new ECC/RSA private key.
 
-> Returns `Still figuring out, most likely Number`
+> Returns `String`
 
 Parameters | Description | Type
 ---------- | ----------- | ----
@@ -94,7 +94,7 @@ Client.listCerts().then(r => console.log(r)).catch(e => console.error(e));
 
 This is currently the most complex function. This function creates a new certificate.
 
-> Returns unknown
+> Returns `unknown`
 
 Parameters | Description | Type
 ---------- | ----------- | ----
