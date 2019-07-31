@@ -108,3 +108,5 @@ csr | The PEM-encoded CSR. | `Path to CSR`
 
 ```javascript
 Client.createCert(2, 'matthew@cloud.libraryofcode.us', 'SHA512', 'ECC', fs.readFileSync('/path/to/my.csr', {encoding: 'utf8'})).then(r => console.log(r)).catch(e => console.error(e));
+
+> Make sure for the path to the CSR you add utf8 encoding.
