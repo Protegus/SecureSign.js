@@ -94,7 +94,7 @@ Client.listCerts().then(r => console.log(r)).catch(e => console.error(e));
 
 This is currently the most complex function. This function creates a new certificate.
 
-> Returns `unknown`
+> Returns `certificate object`
 
 Parameters | Description | Type
 ---------- | ----------- | ----
