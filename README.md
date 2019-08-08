@@ -95,6 +95,7 @@ Client.listCerts().then(r => console.log(r)).catch(e => console.error(e));
 This is currently the most complex function. This function creates a new certificate.
 
 > Returns `certificate object`
+> For information on a `certificate object`, please visit [this link!](https://docs.cloud.libraryofcode.us/?javascript#generate-class-1-certificate)
 
 Parameters | Description | Type
 ---------- | ----------- | ----
