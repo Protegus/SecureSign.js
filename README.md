@@ -14,7 +14,7 @@ const secureSign = require('securesign.js');
 const Client = new secureSign.Client('yourHash');
 ```
 
-> Your hash can be found under "Account Details" at the [Securesign website.](https://www.securesign.org)
+> Your hash can be found under "Account Details" at the [Securesign website.](https://www.securesign.org) It is recommended that you do not share your hash, keep it in a configuration file or .env file. 
 
 Once you have this, it is highly recommended you run the ready event. The callback function inside the ready event will fire when the client has been fully initialized. Without the use of the ready event, you could run into errors due to the client not being quite ready yet. To run the ready event, simply do:
 
@@ -104,7 +104,7 @@ classNum | The class used to make the certificate. Class 1-2 are supported on EC
 cn | The Common Name of the certificate. | `String`
 md | The Hashing Algorithm to use for the certificate, can be SHA256, SHA384, or SHA512. | `String`
 type | The CA key type to use, can be ECC or RSA. | `String`
-csr | The PEM-encoded CSR. | `Path to CSR`
+csr | The PEM-encoded CSR, you want to provide the path to CSR and it'll be read automatically by the library. | `String`
 
 #### Example 
 
