@@ -104,7 +104,7 @@ classNum | The class used to make the certificate. Class 1-2 are supported on EC
 cn | The Common Name of the certificate. | `String`
 md | The Hashing Algorithm to use for the certificate, can be SHA256, SHA384, or SHA512. | `String`
 type | The CA key type to use, can be ECC or RSA. | `String`
-csr | The PEM-encoded CSR, you want to provide the path to CSR and it'll be read automatically by the library. | `String`
+csr | The PEM-encoded CSR. You want to provide the path to CSR and it'll be read automatically by the library. | `String`
 
 #### Example 
 
